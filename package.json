@@ -1,6 +1,6 @@
 {
   "name": "plural-rules-selector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Maps non-negative integers to their Unicode CLDR plural category for cardinal and ordinal numbers",
   "type": "module",
   "main": "src/index.js",
