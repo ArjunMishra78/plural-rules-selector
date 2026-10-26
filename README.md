@@ -19,3 +19,10 @@ Correct CLDR pluralisation normally requires a locale data pack: thousands of ru
 ## The awkward edge
 
 Only English rules are implemented. Non-English locales and full fractional numbers are out of scope. Negative integers are rejected with a `RangeError` because CLDR cardinal pluralisation is defined for display quantities; if you need negative handling, map the value to its magnitude before calling. Passing a non-integer (including numeric strings) throws a `TypeError`.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
